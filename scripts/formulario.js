@@ -22,6 +22,24 @@ function capturarDatos(){
 
     //imprimir lo que se captura del input
     console.log(miNombre);
+
+    //invocar a la función para guardar información en local storage
+    guardarInformacionEnLocalStorage(miNombre);
 }
 
+//Almacenar en local storage las variables del formulario
+function guardarInformacionEnLocalStorage(nombreStorage){
+
+    //JSON Javascript Object Notation {'Nombre' : nombreStorage}
+    //localStorage.setItem(Colocar el key , y el valor de la key)
+    localStorage.setItem('Nombre' , nombreStorage);
+
+    mostrarInformacionEnHTML();
+}
+
+//Mostrar el nombre en mi HTML
+function mostrarInformacionEnHTML(){
+    let nombreObtenidoDeStorage = localStorage.getItem('Nombre');
+    document.getElementById('resultadoForm').innerHTML = "El nombre es " + nombreObtenidoDeStorage;
+}
 
